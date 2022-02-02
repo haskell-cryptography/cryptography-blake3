@@ -1,0 +1,45 @@
+cabal-version:      3.0
+name:               cryptography-blake3
+version:            1.0
+category:           Cryptography
+synopsis:           Haskelly wrappers around cryptography-blake3-bindings
+description:
+  A more idiomatic Haskell wrapper around the BLAKE3 implementation in
+  cryptography-blake3-bindings.
+
+homepage:           https://github.com/haskell-cryptography/cryptography-blake3
+bug-reports:
+  https://github.com/haskell-cryptography/cryptography-blake3/issues
+
+author:             Koz Ross
+maintainer:         Koz Ross
+license:            BSD-3-Clause
+build-type:         Simple
+tested-with:        GHC ==8.10.7 || ==9.0.1 || ==9.2.1
+extra-source-files:
+  CHANGELOG.md
+  LICENSE
+  README.md
+
+source-repository head
+  type:     git
+  location: https://github.com/haskell-cryptography/cryptography-blake3
+
+common common
+  build-depends:    base >=4.14 && <5
+  ghc-options:
+    -Wall -Wcompat -Widentities -Wincomplete-record-updates
+    -Wincomplete-uni-patterns -Wpartial-fields -Wredundant-constraints
+    -Wmissing-export-lists -fhide-source-paths -Wno-unused-do-bind
+    -fwrite-ide-info -hiedir=.hie -haddock
+
+  default-language: Haskell2010
+
+library
+  import:          common
+  exposed-modules: Cryptography.BLAKE3
+  build-depends:
+    , cryptography-blake3-bindings  ^>=1.0
+    , primitive                     ^>=0.7.3.0
+
+  hs-source-dirs:  src

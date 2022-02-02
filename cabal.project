@@ -1,0 +1,9 @@
+packages: ./cryptography-blake3.cabal
+
+package cryptography-blake3
+  ghc-options: -Werror
+
+source-repository-package
+  type: git
+  location: https://github.com/haskell-cryptography/cryptography-blake3-bindings
+  tag: 2cbad71136bf8ff431883ee6a4a692146feb1b90
